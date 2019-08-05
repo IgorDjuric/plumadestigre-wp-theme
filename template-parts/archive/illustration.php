@@ -7,7 +7,7 @@
 
 ?>
 <div class="archive-print">
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center">
         <?php if (have_posts()) :
 
             /* Start the Loop */

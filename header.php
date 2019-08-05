@@ -18,7 +18,7 @@
 </head>
 
 <body <?php body_class(); ?> >
-
+<!--<a href="#page" id="g1-back-to-top" class="g1--on">Back to Top</a>-->
     <div id="page" class="site main <?php setBodyClass(); ?>">
         <div class="main-layout">
         <?php

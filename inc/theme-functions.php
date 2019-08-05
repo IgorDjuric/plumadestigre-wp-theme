@@ -17,7 +17,7 @@ function setBodyClass()
         echo('pl-digital');
 
     } elseif ($currentPageCategoryName === 'illustration' || $postCategoryName === 'illustration') {
-        echo('pl-illustration');
+        echo('pl-illustration pl-print');
 
     } elseif ($currentPageCategoryName === 'multimedia' || $postCategoryName === 'multimedia') {
         echo('pl-multimedia');
@@ -47,5 +47,4 @@ function getCategoryName()
         }
     }
 }
-
 

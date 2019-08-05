@@ -8,51 +8,59 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<?php
+//plumasdetigre_post_thumbnail();
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				plumasdetigre_posted_on();
-				plumasdetigre_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+if (has_blocks($post->post_content)) {
+    $blocks = parse_blocks($post->post_content);
+    foreach ($blocks as $block) {
+        if ($block['blockName'] === 'core/image') {
+            $images[] = $block['innerHTML'];
+        }
+        if ($block['blockName'] === 'core/paragraph') {
+            $paragraphs[] = $block['innerHTML'];
+        }
+    }
 
-	<?php plumasdetigre_post_thumbnail(); ?>
+}
+$categoryName = getCategoryName();
+?>
+<div class="back-to-category">
+    <a href="/<?=$categoryName?>" rel="next">
+        <span></span>
+    </a>
+</div>
+<div class="single-page-article-wrapper">
 
-	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'plumasdetigre' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'plumasdetigre' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <div class="row d-flex justify-content-center">
+            <div class="images-content">
+                <?php
+                foreach ($images as $image) {
+                    echo $image;
+                }
 
-	<footer class="entry-footer">
-		<?php plumasdetigre_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+                ?>
+            </div>
+            <div class="text-content">
+
+                <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+                <div class="excerpt"><?php the_excerpt(); ?></div>
+                <div class="paragraphs-wrapper">
+                <?php
+                    foreach ($paragraphs as $paragraph) {
+                        echo $paragraph;
+                    }
+                ?>
+                </div>
+            </div>
+        </div>
+
+
+    </div><!-- #post-<?php the_ID(); ?> -->
+    <div class="single-article-back-to-top">
+        <span id="scroll-to-top"></span>
+    </div>
+</div>
+

@@ -21,6 +21,7 @@
     </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <?php wp_footer(); ?>
 
