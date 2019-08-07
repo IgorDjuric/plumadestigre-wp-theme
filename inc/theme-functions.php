@@ -48,3 +48,48 @@ function getCategoryName()
     }
 }
 
+/**
+ * Return array of image ids from post gallery block
+ *
+ * @param $post
+ * @return array
+ */
+function getImageIdsFromPostGalleryBlock($post) {
+    if (has_blocks($post->post_content)) {
+        $blocks = parse_blocks($post->post_content);
+        if ($blocks[0]['blockName'] === 'core/gallery') {
+            return $blocks[0]['attrs']['ids'];
+        }
+
+    }
+}
+/**
+ * Return id of image from post image block
+ *
+ * @param $post
+ * @return array
+ */
+function getImageIdFromPostImageBlock($post) {
+    if (has_blocks($post->post_content)) {
+        $blocks = parse_blocks($post->post_content);
+        if ($blocks[0]['blockName'] === 'core/image') {
+            return $blocks[0]['attrs']['id'];
+        }
+    }
+}
+
+/**
+ * Returns formatted image stdClass
+ *
+ * @param $imageId
+ * @return stdClass
+ */
+function getImageStd($imageId){
+    $image = new stdClass();
+    $image->url = wp_get_attachment_image_url($imageId, 'large');
+    $image->title = get_the_title($imageId);
+    $image->caption = wp_get_attachment_caption($imageId);
+
+    return $image;
+}
+

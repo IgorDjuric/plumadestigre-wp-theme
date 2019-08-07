@@ -119,10 +119,20 @@ class Setup
      * Enqueue scripts and styles.
      */
     public function plScripts() {
+        // styles
         wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), 20141119 );
+//        wp_enqueue_style( 'swipebox-css', get_template_directory_uri() .'/js/swipebox/src/css/swipebox.css' );
+//        wp_enqueue_style( 'lightbox-css', get_template_directory_uri() .'/js/lightbox/lightbox.css' );
+        wp_enqueue_style( 'ekko-lightbox-css', get_template_directory_uri() .'/js/ekkobox/lightbox.css' );
+
+
         wp_enqueue_style( 'plumasdetigre-style', get_stylesheet_uri() );
 
+        // scripts
+//        wp_enqueue_script( 'swipebox', get_template_directory_uri() . '/js/swipebox/src/js/jquery.swipebox.js', array('jquery'), '', true );
         wp_enqueue_script( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'), '20120206', true );
+        wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/lightbox/lightbox.js', array('jquery'), '', true );
+        wp_enqueue_script( 'ekko-lightbox', get_template_directory_uri() . '/js/ekkobox/lightbox.js', array('jquery'), '', true );
         wp_enqueue_script( 'plumasdetigre-theme-script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '', true );
     }
 }
