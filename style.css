@@ -541,7 +541,7 @@ header .category-nav a:hover {
 /********** BRANDING PAGE ***********/
 /**********************************/
 .pl-branding .pl-header {
-    background: url("assets/images/header-multimedia-background.png");
+    background: url("assets/images/header-multimedia-background.png") no-repeat center;
 }
 
 .pl-branding .main-layout {
@@ -848,10 +848,10 @@ header .category-nav a:hover {
 .modal-content {
     /*background-color:transparent;*/
     /*height: 100%;*/
-    /*top: 50%;*/
-    /*-webkit-transform: translateY(-50%);*/
-    /*-ms-transform: translateY(-50%);*/
-    /*transform: translateY(-50%);*/
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .modal-header {
@@ -1223,6 +1223,19 @@ header .category-nav a:hover {
     }
     .pl-digital article{
         max-height: 768px;
+    }
+    .archive-branding{
+        padding-bottom: 0px;
+    }
+    .pl-branding article{
+        width: 300px;
+        height: 300px;
+    }
+    .pl-branding .archive-branding{
+        padding: 25px 0px;
+    }
+    .pl-branding .main-layout{
+        background-position: 0 278px;
     }
 
 }
