@@ -16,12 +16,12 @@ if (has_blocks($post->post_content)) {
     foreach ($blocks as $block) {
         if ($block['blockName'] === 'core/image') {
             $images[] = $block['innerHTML'];
-        }
-        if ($block['blockName'] === 'core/paragraph') {
+        }elseif ($block['blockName'] === 'core/gallery'){
+            $gallery = $block['innerHTML'];
+        } elseif ($block['blockName'] === 'core/paragraph'){
             $paragraphs[] = $block['innerHTML'];
         }
     }
-
 }
 $categoryName = getCategoryName();
 ?>
@@ -34,9 +34,12 @@ $categoryName = getCategoryName();
 
 
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center content">
             <div class="images-content">
                 <?php
+
+                echo $gallery;
+
                 foreach ($images as $image) {
                     echo $image;
                 }

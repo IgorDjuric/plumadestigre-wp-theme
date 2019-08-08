@@ -57,3 +57,6 @@
         ?>
     </div>
 </div>
+<div class="single-article-back-to-top">
+    <span id="scroll-to-top"></span>
+</div>

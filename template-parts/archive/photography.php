@@ -30,7 +30,7 @@
                            class=""
                            data-toggle="lightbox"
                            data-gallery="example-gallery"
-                           data-title="<?= $image->title ?>">
+                           data-title="<?= $image->caption ?>">
 
                             <img src="<?= $image->url ?>"/>
                         </a>
@@ -47,5 +47,8 @@
         endif;
         ?>
     </div>
+</div>
+<div class="single-article-back-to-top">
+    <span id="scroll-to-top"></span>
 </div>
 
