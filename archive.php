@@ -15,7 +15,8 @@ get_header();
 
             <?php
                 $categoryName = getCategoryName();
-                get_template_part('template-parts/archive/' . $categoryName);
+                get_template_part('template-parts/archive/' . strtolower($categoryName));;
+
             ?>
 
         </main><!-- #main -->

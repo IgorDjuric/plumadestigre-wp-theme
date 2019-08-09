@@ -102,14 +102,6 @@ jQuery(document).ready(function () {
         });
     });
 
-    console.log(jQuery(document).height() )
-    // lightbox.option({
-    //     'resizeDuration': 200,
-    //     'wrapAround': true,
-    //     'imageFadeDuration': 200,
-    //     'fitImagesInViewport': true,
-    //     'fadeDuration': 200
-    // })
 
 });
 
